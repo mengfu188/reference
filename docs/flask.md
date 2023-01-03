@@ -148,11 +148,17 @@ def login():
 def profile(username):
     return f'{username}\'s profile'
 
+@app.route('/book/<int:book_id>')
+def book(book_id):
+    # 将book_id转为整数
+    return f'{book_id + 1}\'s book'
+
 with app.test_request_context():
     print(url_for('index'))
     print(url_for('login'))
     print(url_for('login', next='/'))
     print(url_for('profile', username='John Doe'))
+    print(url_for('book', book_id='1'))
 ```
 
 ### HTTP 方法
